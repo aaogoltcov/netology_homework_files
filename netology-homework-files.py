@@ -4,23 +4,17 @@ from pprint import pprint, pformat
 with open('recipes.txt', encoding='utf8') as file:
     lines = list(line.split(" | ") for line in (lines.strip() for lines in file) if line)
 
-cook_book = {}  # Книга рецептов
-cook_book_line = {}  # Рецепт блюда в книге рецептов
-ingredient_list = []  # Список для одного ингридиента
-reciept = str()  # Рецепт
-ingredients_amount = int()  # Количество ингредиентов
-ingredient_line = {}  # Описание ингредиента
-previous_line_length = int()  # Длина списка предыдущего цикла
-current_line_count = int()  # Текущий номер цикла
-
-get_shop_list_by_dishes = [] # Список блюда и количество людей для покупок продуктов
-dish_name = str() # Название блюда
-person_count = int() # Количество человек
-food_list = {} # Список покупок
-
 
 def main():  # Основная функция
     global reciept, current_line_count, previous_line_length, ingredients_amount, dish_name, person_count
+
+    current_line_count = int()  # Текущий номер цикла
+    reciept = str()  # Рецепт
+    previous_line_length = int()  # Длина списка предыдущего цикла
+    cook_book = {}  # Книга рецептов
+    cook_book_line = {}  # Рецепт блюда в книге рецептов
+    ingredients_amount = int()  # Количество ингредиентов
+
 
     # ЗАДАЧА 1
     print('Список рецептов из файла: ')
@@ -71,6 +65,10 @@ def ingredients_list(ingredient, line, reciept, cook_book, cook_book_line):
 # ЗАДАЧА №2
 # Функция проверки введеных блюд и вывод результатов
 def get_dished_shop_list(cook_book):
+    get_shop_list_by_dishes = []  # Список блюда и количество людей для покупок продуктов
+    dish_name = str()  # Название блюда
+    person_count = int()  # Количество человек
+    food_list = {}  # Список покупок
     dishes = [] # Лист со списком блюд
     dish_name = str() # Название блюда
     person_count = int() # Количество персон для приготовления блюд
