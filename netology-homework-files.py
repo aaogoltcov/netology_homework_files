@@ -13,10 +13,10 @@ ingredient_line = {}  # Описание ингредиента
 previous_line_length = int()  # Длина списка предыдущего цикла
 current_line_count = int()  # Текущий номер цикла
 
-get_shop_list_by_dishes = []
-dish_name = str()
-person_count = int()
-food_list = {}
+get_shop_list_by_dishes = [] # Список блюда и количество людей для покупок продуктов
+dish_name = str() # Название блюда
+person_count = int() # Количество человек
+food_list = {} # Список покупок
 
 
 def main():  # Основная функция
@@ -71,9 +71,9 @@ def ingredients_list(ingredient, line, reciept, cook_book, cook_book_line):
 # ЗАДАЧА №2
 # Функция проверки введеных блюд и вывод результатов
 def get_dished_shop_list(cook_book):
-    dishes = []
-    dish_name = str()
-    person_count = int()
+    dishes = [] # Лист со списком блюд
+    dish_name = str() # Название блюда
+    person_count = int() # Количество персон для приготовления блюд
     dishes_list = 0
 
     # Проверка введенных данных
@@ -92,7 +92,7 @@ def get_dished_shop_list(cook_book):
         get_shop_list_by_dishes.append(person_count)
 
     # Вывод результатов
-    food_list = {}
+    food_list = {} # Список покупок
     for dish_name in get_shop_list_by_dishes[0]:
         # print(dish_name)
         for key, value in cook_book.items():
