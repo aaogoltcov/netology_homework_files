@@ -6,7 +6,6 @@ with open('recipes.txt', encoding='utf8') as file:
 
 
 def main():  # Основная функция
-    global reciept, current_line_count, previous_line_length, ingredients_amount, dish_name, person_count
 
     current_line_count = int()  # Текущий номер цикла
     reciept = str()  # Рецепт
@@ -21,9 +20,9 @@ def main():  # Основная функция
     for line in lines:
         ingredient = {}  # Список ингридентов
         if len(line) == 1 and (previous_line_length == 0 or previous_line_length > 1):
-            reciept = dish_define(cook_book_line, cook_book, reciept)
+            reciept = dish_define(cook_book_line, cook_book, reciept, current_line_count)
         elif len(line) == 1 and previous_line_length == 1:
-            ingredients_amount = ingredient_count(ingredients_amount)
+            ingredients_amount = ingredient_count(ingredients_amount, current_line_count)
         elif 1 < len(line) <= ingredients_amount:
             ingredients_list(ingredient, line, reciept, cook_book, cook_book_line)
         previous_line_length = len(line)
@@ -37,7 +36,7 @@ def main():  # Основная функция
 
 # ЗАДАЧА №1
 # Функция выбора блюда
-def dish_define(cook_book_line, cook_book, reciept):
+def dish_define(cook_book_line, cook_book, reciept, current_line_count):
     reciept = ''.join(map(str, lines[current_line_count]))
     cook_book_line.update({reciept: []})
     cook_book.update(cook_book_line)
@@ -45,7 +44,7 @@ def dish_define(cook_book_line, cook_book, reciept):
 
 
 #  Функция определения количества ингридентов
-def ingredient_count(ingredients_amount):
+def ingredient_count(ingredients_amount, current_line_count):
     count = ''.join(map(str, lines[current_line_count]))
     ingredients_amount = int(count)
     return ingredients_amount
